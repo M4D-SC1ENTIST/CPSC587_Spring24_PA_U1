@@ -25,7 +25,22 @@
 
     // todo: draw a line segment in a 3D ThreeEngine scene with a start point of [-1,-1,1], an end point of [1,1,1],
     // todo: not rendering through other objects, a width of 0.01, a color of 0x000000, and an opacity of 0.9
+    import * as THREE from 'three';
 
+    let engine = ThreeEngine.new_default_3d();
+
+    const startPoint = [-1, -1, 1];
+    const endPoint = [1, 1, 1];
+    const renderThroughOtherObjects = false;
+    const width = 0.01;
+    const color = 0x000000;
+    const opacity = 0.9;
+
+    engine.draw_debug_line(startPoint, endPoint, renderThroughOtherObjects, width, color, opacity);
+
+    engine.renderer.setAnimationLoop(() => {
+        engine.renderer.render(engine.scene, engine.camera);
+    });
 </script>
 </body>
 </html>
